@@ -50,7 +50,6 @@ jobs:
       - name: Run main program
         id: run_main_program
         env:
-          CI: ${{ ci }}
           GITHUB_ACTION: ${{ github.action }}
           GITHUB_ACTION_PATH: ${{ github.action_path }}
           GITHUB_ACTION_REPOSITORY: ${{ github.action_repository }}
@@ -100,7 +99,6 @@ jobs:
           echo "BEIJING_TIME=$BEIJING_TIME" >> $GITHUB_OUTPUT
           echo "------"
 
-          echo "CI: $CI"
           echo "GITHUB_ACTION: $GITHUB_ACTION"
           echo "GITHUB_ACTION_PATH: $GITHUB_ACTION_PATH"
           echo "GITHUB_ACTION_REPOSITORY: $GITHUB_ACTION_REPOSITORY"
