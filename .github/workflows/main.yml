@@ -50,31 +50,100 @@ jobs:
       - name: Run main program
         id: run_main_program
         env:
-          GITHUB_ACTIONS: ${{github.actions}}
+          CI: ${{ ci }}
+          GITHUB_ACTION: ${{ github.action }}
+          GITHUB_ACTION_PATH: ${{ github.action_path }}
+          GITHUB_ACTION_REPOSITORY: ${{ github.action_repository }}
+          GITHUB_ACTIONS: ${{ github.actions }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_ACTOR_ID: ${{ github.actor_id }}
+          GITHUB_API_URL: ${{ github.api_url }}
+          GITHUB_BASE_REF: ${{ github.base_ref }}
+          GITHUB_ENV: ${{ github.env }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_TRIGGERING_ACTOR: ${{ github.triggering_actor }}
-          REPOSITORY_NAME: ${{ github.repository }}
-          GITHUB_SHA: ${{ github.sha }}
-          GITHUB_WORKFLOW: ${{ github.workflow }}
-          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+          GITHUB_GRAPHQL_URL: ${{ github.graphql_url }}
+          GITHUB_HEAD_REF: ${{ github.head_ref }}
+          GITHUB_JOB: ${{ github.job }}
+          GITHUB_OUTPUT: ${{ github.output }}
+          GITHUB_PATH: ${{ github.path }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          GITHUB_REF_PROTECTED: ${{ github.ref_protected }}
+          GITHUB_REF_TYPE: ${{ github.ref_type }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REPOSITORY_ID: ${{ github.repository_id }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+          GITHUB_REPOSITORY_OWNER_ID: ${{ github.repository_owner_id }}
+          GITHUB_RETENTION_DAYS: ${{ github.retention_days }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
           GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_STEP_SUMMARY: ${{ github.step_summary }}
+          GITHUB_TRIGGERING_ACTOR: ${{ github.triggering_actor }}
+          GITHUB_WORKFLOW: ${{ github.workflow }}
+          GITHUB_WORKFLOW_REF: ${{ github.workflow_ref }}
+          GITHUB_WORKFLOW_SHA: ${{ github.workflow_sha }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
+          RUNNER_ARCH: ${{ runner.arch }}
+          RUNNER_DEBUG: ${{ runner.debug }}
+          RUNNER_ENVIRONMENT: ${{ runner.environment }}
+          RUNNER_NAME: ${{ runner.name }}
+          RUNNER_OS: ${{ runner.os }}
+          RUNNER_TEMP: ${{ runner.temp }}
+          RUNNER_TOOL_CACHE: ${{ runner.tool_cache }}
         run: |
           # 运行主程序
           export BEIJING_TIME="$(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S:%3N')"
           echo "BEIJING_TIME=$BEIJING_TIME" >> $GITHUB_OUTPUT
           echo "------"
 
-          echo "Triggered By: $GITHUB_EVENT_NAME"
-          echo "Run By: $GITHUB_TRIGGERING_ACTOR"
-          echo "Repository Name: $REPOSITORY_NAME"
-          echo "Commit SHA: $GITHUB_SHA"
-          echo "Workflow Name: $GITHUB_WORKFLOW"
-          echo "Workflow Number: $GITHUB_RUN_NUMBER"
-          echo "Workflow ID: $GITHUB_RUN_ID"
-          echo "Beijing Time: $BEIJING_TIME"
-          echo "Copyright © 2024 NianBroken. All rights reserved."
-          echo "Author's website: https://www.nianbroken.top/"
-          echo "Author's Repository URL: https://github.com/NianBroken/ZFActionTest/"
+          echo "CI: $CI"
+          echo "GITHUB_ACTION: $GITHUB_ACTION"
+          echo "GITHUB_ACTION_PATH: $GITHUB_ACTION_PATH"
+          echo "GITHUB_ACTION_REPOSITORY: $GITHUB_ACTION_REPOSITORY"
+          echo "GITHUB_ACTIONS: $GITHUB_ACTIONS"
+          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+          echo "GITHUB_ACTOR_ID: $GITHUB_ACTOR_ID"
+          echo "GITHUB_API_URL: $GITHUB_API_URL"
+          echo "GITHUB_BASE_REF: $GITHUB_BASE_REF"
+          echo "GITHUB_ENV: $GITHUB_ENV"
+          echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
+          echo "GITHUB_EVENT_PATH: $GITHUB_EVENT_PATH"
+          echo "GITHUB_GRAPHQL_URL: $GITHUB_GRAPHQL_URL"
+          echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
+          echo "GITHUB_JOB: $GITHUB_JOB"
+          echo "GITHUB_OUTPUT: $GITHUB_OUTPUT"
+          echo "GITHUB_PATH: $GITHUB_PATH"
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "GITHUB_REF_NAME: $GITHUB_REF_NAME"
+          echo "GITHUB_REF_PROTECTED: $GITHUB_REF_PROTECTED"
+          echo "GITHUB_REF_TYPE: $GITHUB_REF_TYPE"
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+          echo "GITHUB_REPOSITORY_ID: $GITHUB_REPOSITORY_ID"
+          echo "GITHUB_REPOSITORY_OWNER: $GITHUB_REPOSITORY_OWNER"
+          echo "GITHUB_REPOSITORY_OWNER_ID: $GITHUB_REPOSITORY_OWNER_ID"
+          echo "GITHUB_RETENTION_DAYS: $GITHUB_RETENTION_DAYS"
+          echo "GITHUB_RUN_ATTEMPT: $GITHUB_RUN_ATTEMPT"
+          echo "GITHUB_RUN_ID: $GITHUB_RUN_ID"
+          echo "GITHUB_RUN_NUMBER: $GITHUB_RUN_NUMBER"
+          echo "GITHUB_SERVER_URL: $GITHUB_SERVER_URL"
+          echo "GITHUB_SHA: $GITHUB_SHA"
+          echo "GITHUB_STEP_SUMMARY: $GITHUB_STEP_SUMMARY"
+          echo "GITHUB_TRIGGERING_ACTOR: $GITHUB_TRIGGERING_ACTOR"
+          echo "GITHUB_WORKFLOW: $GITHUB_WORKFLOW"
+          echo "GITHUB_WORKFLOW_REF: $GITHUB_WORKFLOW_REF"
+          echo "GITHUB_WORKFLOW_SHA: $GITHUB_WORKFLOW_SHA"
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          echo "RUNNER_ARCH: $RUNNER_ARCH"
+          echo "RUNNER_DEBUG: $RUNNER_DEBUG"
+          echo "RUNNER_ENVIRONMENT: $RUNNER_ENVIRONMENT"
+          echo "RUNNER_NAME: $RUNNER_NAME"
+          echo "RUNNER_OS: $RUNNER_OS"
+          echo "RUNNER_TEMP: $RUNNER_TEMP"
+          echo "RUNNER_TOOL_CACHE: $RUNNER_TOOL_CACHE"
 
       - name: Force push changes to main branch
         run: |
