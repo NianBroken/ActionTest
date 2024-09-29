@@ -1,5 +1,5 @@
 # 工作流的名称
-name: ActionTest01
+name: ActionTest0
 
 # 工作流运行的名称
 run-name: ${{ github.workflow }} ${{ github.sha }}
